@@ -23,6 +23,9 @@ public class Movie {
         this.revenue = revenue;
     }
 
+    public Movie(int i, String title2, int id2, String date2) {
+    }
+    
     public int getId() {
         return id;
     }

@@ -1,5 +1,6 @@
 package com.stackroute.MovieApp.domain;
 
+import io.swagger.annotations.Info;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,14 +23,10 @@ public class Movie {
     private String overview;
     private int revenue;
 
-
-    public Movie(int i, String title2, int id2, String date2) {
+    public Movie(int id, String title, String release_date) {
     }
 
-    public void getId() {
-    }
 
-    public void setId(int id) {
-        this.id=id;
+    public static Info builder() {
     }
 }

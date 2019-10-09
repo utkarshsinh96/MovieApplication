@@ -20,14 +20,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie saveNewMovie(Movie movie)  {
-//    if(movieRepository.existsById(movie.getId())){
-//      throw new Exception("Movie already exits");
-//    }
         Movie savedMovie = movieRepository.save(movie);
-//    if(savedMovie == null)
-//    {
-//      throw new Exception("Movie already exists.");
-//    }
         return savedMovie;
     }
 
@@ -39,18 +32,12 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public Optional<Movie> getById(int id) {
         Optional<Movie> movieId = movieRepository.findById(id);
-//    if (movieId.isEmpty()){
-//      throw new Exception("Movie not found");
-//    }
         return movieId;
     }
 
     @Override
     public boolean deleteById(int id){
         Optional<Movie> movieId = movieRepository.findById(id);
-//    if (movieId.isEmpty()){
-//      throw new Exception("Movie not found");
-//    }
         movieRepository.deleteById(id);
         return true;
 
@@ -59,12 +46,15 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public Movie updateById(Movie movie, int id) {
         Optional<Movie> userOptional = movieRepository.findById(id);
-//    if(userOptional.isEmpty()){
-//      throw new Exception("Track not found!");
-//    }
         movie.setId(id);
         movieRepository.save(movie);
         return movie;
+    }
+
+    @Override
+    public List<Movie> getByName(String title) {
+        List<Movie> id = movieRepository.findTitleByName(title);
+        return id;
     }
 
 
